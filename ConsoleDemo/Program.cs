@@ -18,7 +18,7 @@ namespace ConsoleDemo
              
             //Random r = new Random();
             //double d;
-              
+                
             //do
             //{
             //    d = r.Next(-82000, 82000);
