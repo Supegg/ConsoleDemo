@@ -12,13 +12,14 @@ namespace ConsoleDemo
         static void Main(string[] args)
         {
             Console.WriteLine("hello world");
+            Console.WriteLine("CommandLine: {0}", Environment.CommandLine);
             //Console.WriteLine(args[0]);
             //DateTime t = DateTime.Now;
             //Console.WriteLine("{0},{1}", t, t.Ticks);
-             
+
             //Random r = new Random();
             //double d;
-                
+
             //do
             //{
             //    d = r.Next(-82000, 82000);
@@ -32,7 +33,7 @@ namespace ConsoleDemo
             //    System.Threading.Thread.Sleep(1000);
             //} while (true);
 
-            new StaticTest().DoTest();
+            //new StaticTest().DoTest();
 
             Console.Read();
 
