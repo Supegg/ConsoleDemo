@@ -35,7 +35,40 @@ namespace ConsoleDemo
 
             //new StaticTest().DoTest();
 
+            testDatetime();
+
             Console.Read();
+
+        }
+
+        static void testDatetime()
+        {
+            DateTime now = DateTime.Now;
+            DateTime utcNow = DateTime.UtcNow;
+
+            Console.WriteLine("now:\t{0} ticks", now.Ticks);
+            Console.WriteLine("utc now:{0} ticks", utcNow.Ticks);
+            Console.WriteLine("now diff:{0} ticks", (now - utcNow).Ticks);
+
+            DateTime epoch0 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Unspecified);
+            DateTime epoch1 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
+            DateTime epoch2 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            Console.WriteLine("{0}\t{1}\t{2}", epoch0.ToLocalTime(), epoch1.ToLocalTime(), epoch2.ToLocalTime());
+
+            Console.WriteLine("{0}\t{1}\t{2}", epoch0.Ticks, epoch1.Ticks, epoch2.Ticks); // they are all equal. why?
+
+            Console.WriteLine("now0:\t\t{0} ms", (now - epoch0).TotalMilliseconds);
+            Console.WriteLine("now1:\t\t{0} ms", (now - epoch1).TotalMilliseconds);
+            Console.WriteLine("now2:\t\t{0} ms", (now - epoch2).TotalMilliseconds);
+
+            //unix-like ms timestamp
+            Console.WriteLine("utc now0:\t{0} ms", (utcNow - epoch0).TotalMilliseconds);
+            Console.WriteLine("utc now1:\t{0} ms", (utcNow - epoch1).TotalMilliseconds);
+            Console.WriteLine("utc now2:\t{0} ms", (utcNow - epoch2).TotalMilliseconds);
+
+            //Console.WriteLine("epoch diff:{0} ms", (epoch0 - epoch1).TotalMilliseconds);
+
 
         }
 
